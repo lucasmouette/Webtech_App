@@ -1,0 +1,103 @@
+'Code written by Lucas Mouette'
+
+@startuml
+!theme aws-orange
+
+class TravelPlan {
+    __CONSTRUCTOR__
+
+    - travel_name: string
+    - travel_duration: TravelDuration
+    - destination_country: DestinationCountry 
+    - assigned_tour_guide: Tourguide
+
+    __GETTER__
+
+    + get travel_name(): string
+    + get travel_duration(): TravelDuration
+    + get destination_country(): DestinationCountry
+    + get assigned_tour_guide(): TourGuide
+
+    __SETTER__
+
+    + set travel_name(name: string): void
+    + set travel_duration(duration: number): void
+    + set destination_country(country: DestinationCountry): void
+    + set assigned_tour_guide(tour_guide: TourGuide): void
+
+}
+'removeDaysAllocated je nachdem ändern wenn die getter/setter zusammen geschrieben werden'
+class TravelDuration {
+    __CONSTRUCTOR__
+
+    - tota_days: number
+    - days_allocated: dict{[key: string]:[value: number]}
+
+    __GETTER__
+
+    + get total_days(): number
+    + get days_allocated(): dict{[key: string]:[value: number]}
+    + get remaining_days(): (total_days - days_allocated.value)
+
+    __SETTER__
+    
+    + set total_days(total_days: number): void
+
+    __METHODS__
+
+    + add allocated_days(dict{[key: string]:[value: number]}): void
+    + removeDaysAllocated(city_name: string): void
+}
+
+class DestinationCountry {
+    __CONSTRUCTOR__
+
+    - name: string
+    - cities: City[]
+
+    __GETTER__
+
+    + get country_name(): string
+    + get cities(): City[]
+
+    __METHODS__
+
+    + addCities(city: City[]): void
+    + removeCity(city: string): void
+}
+
+class City {
+    __CONSTRUCTOR__
+
+    - city_name: string
+    - stay_duration: number
+
+    __GETTER__
+
+    + get city_name(): string
+    + get days(): duration_of_stay
+
+    __SETTER__
+    
+    + set days(new_duration_of_stay: number): void
+}
+
+
+class TourGuide {
+    __CONSTRUCTOR__
+
+    - guide_name: string
+    - spoken_languages: string[]
+
+    __GETTER__
+
+    + get guide_name(): string
+    + get spoken_languages(): string[]
+}
+
+TravelPlan --> "1" DestinationCountry
+TravelPlan --> "1" TourGuide
+TravelPlan --> "1" TravelDuration
+DestinationCountry "1" --> "1...n" City
+
+@enduml
