@@ -1,7 +1,7 @@
 'Code written by Lucas Mouette'
 
 @startuml
-!theme aws-orange
+skin rose
 
 class TravelPlan {
     __CONSTRUCTOR__
@@ -30,14 +30,14 @@ class TravelPlan {
 class TravelDuration {
     __CONSTRUCTOR__
 
-    - tota_days: number
-    - days_allocated: dict{[key: string]:[value: number]}
+    - total_days: number
+    - days_allocated: number
 
     __GETTER__
 
     + get total_days(): number
-    + get days_allocated(): dict{[key: string]:[value: number]}
-    + get remaining_days(): (total_days - days_allocated.value)
+    + get days_allocated(): number
+    + get remaining_days(): number
 
     __SETTER__
     
@@ -45,8 +45,7 @@ class TravelDuration {
 
     __METHODS__
 
-    + add allocated_days(dict{[key: string]:[value: number]}): void
-    + removeDaysAllocated(city_name: string): void
+    + update(City[]): void
 }
 
 class DestinationCountry {
