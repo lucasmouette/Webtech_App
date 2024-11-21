@@ -31,19 +31,18 @@ export class TravelPlan {
     };
 
     get assigned_tour_guide(): TourGuide {
-        return this._assigned_tour_guide
+        return this._assigned_tour_guide;
     };
 
     set name(travel_name: string) {
-        this._travel_name = travel_name
+        this._travel_name = travel_name;
     };
 
     set country(destination_country: DestinationCountry) {
-        this._destination_country = destination_country
-    }
+        this._destination_country = destination_country;
+    };
 
     set assigned_tour_guide(assigned_tour_guide: TourGuide) {
-        this._assigned_tour_guide = assigned_tour_guide
-    }
-
+        this._assigned_tour_guide = assigned_tour_guide;
+    };
 }
