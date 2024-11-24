@@ -1,13 +1,11 @@
 // Code written by Lucas Mouette
 
-import express, { Express, Response, Request } from 'express';
-import TravelPlan_router from './routes/travelplan_routes';
-import bodyParser from 'body-parser'
+import express from "express";
+import travelRoutes from "./routes/travel_routes";
 
-const app: Express = express();
+const app = express();
 
-app.use(bodyParser.json());
-
-app.use('/travelplan', TravelPlan_router);
+app.use(express.json());
+app.use("/travelbuddy", travelRoutes);
 
 export default app;

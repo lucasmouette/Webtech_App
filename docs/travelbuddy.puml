@@ -1,0 +1,35 @@
+'Code written by Lucas Mouette'
+
+@startuml
+skin rose
+
+class Travel {
+  +id: string
+  +destination_country: string
+  +start_date: Date
+  +end_date: Date
+  +cities: City[]
+  +tour_guide: TourGuide
+  
+  +getDetails(): Object
+}
+
+class City {
+  +name: string
+  +stay_days: number
+
+  +getDetails(): Object
+}
+
+class TourGuide {
+  +name: string
+  +spoken_languages: string[]
+
+  +getName(): string
+  +getSpokenLanguages(): string[]
+  +getDetails(): Object
+}
+
+Travel --> City : itinerary
+Travel --> TourGuide : assigned
+@enduml

@@ -1,24 +1,19 @@
 // Code written by Lucas Mouette
 
 export class City {
-
-    private _name: string;
-    private _stay_duration: number;
-
-    constructor(name: string, stay_duration: number) {
-        this._name = name;
-        this._stay_duration = stay_duration;
-    };
-
-    get name(): string {
-        return this._name
+    name: string;
+    stay_days: number;
+  
+    constructor(name: string, stay_days: number) {
+      this.name = name;
+      this.stay_days = stay_days;
     }
-
-    get stay_duration(): number {
-        return this._stay_duration
-    }
-
-    set days(new_duration_of_stay: number) {
-        this._stay_duration = new_duration_of_stay
-    }
-};
+  
+    // // Gibt die Details der Stadt zurück
+    // getDetails() {
+    //   return {
+    //     name: this.name,
+    //     stay_days: this.stay_days,
+    //   };
+    // }
+  }
