@@ -2,15 +2,20 @@
 
 import { Request, Response } from "express";
 import { Travel } from "../models/travel";
-import { travel_list } from "../models/data/travel_list";
-import { filter_for_travel_by_id, push_to_travel, update_travel_by_id, delete_all_travels, delete_travel_by_id } from "../services/travel_service"
+import { filter_for_travel_by_id, push_to_travel, update_travel_by_id, delete_all_travels, delete_travel_by_id, get_all_travels } from "../services/travel_service"
 
 // Alle Reisen aus travel_list.ts anzeigen
-export const get_travels = (_request: Request): Travel[] => {
-    return travel_list;
+export const get_travels = (response: Response) => {
+    const all_travels = get_all_travels();
+
+    if(all_travels.length > 0) {
+        response.status(200).json(all_travels);
+    } else {
+        response.status(404).json('No travels found');
+    };
 };
 
-//Reise anhand der ID finden
+// Reise anhand der ID finden
 export const find_travel_by_id = (request: Request, response: Response) => {
     const my_id = request.params.id;
     const travel_found = filter_for_travel_by_id(my_id);

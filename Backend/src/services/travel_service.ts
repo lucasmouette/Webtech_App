@@ -5,6 +5,11 @@ import { travel_list } from "../models/data/travel_list";
 import { City } from "../models/city";
 import { TourGuide } from "../models/tour_guide";
 
+// Alle Reisen suchen
+export const get_all_travels = (): Travel[] => {
+    return travel_list;
+};
+
 // Reise suchen
 export const filter_for_travel_by_id = (id: string): Travel | null => {
     let mytravel: Travel = {id: "", destination_country: "", start_date: "", end_date: "", cities: [], tour_guide: {name: "", spoken_languages: []}};
@@ -38,7 +43,7 @@ export const create_travel = (
         cities,
         tour_guide
     );
-    // Fügt die neue Reise zur Liste hinzu
+    
     travel_list.push(new_travel);
     return new_travel;
 };
@@ -53,10 +58,7 @@ export const push_to_travel = (travel: Travel): Travel => {
 export const update_travel_by_id = (id: string, data: Travel ) => {
     const updated_travel = travel_list.find((el: Travel) => {
         if(el.id === id) {
-            console.log("finds id");
             travel_list[travel_list.indexOf(el)] = data;
-            console.log("return data");
-            console.log(data);
             return el;
         };
     }
