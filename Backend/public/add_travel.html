@@ -5,9 +5,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Travel</title>
+    <title>Create New Travel</title>
+    <link rel="stylesheet" href="./styles/add_travel.css">
 </head>
 <body>
-    <h1>Add a new Travel</h1>
+    <a href='http://localhost:8084/' class='home-button'>Home</a>
+    <div class="form-container">
+        <h1>Create New Travel</h1>
+        <form id="travel-form">
+            <div class="form-group">
+                <label for="country">Country</label>
+                <input type="text" id="country" name="country" required>
+            </div>
+            <div class="form-group">
+                <label for="start-date">Start Date</label>
+                <input type="date" id="start-date" name="start-date" required>
+            </div>
+            <div class="form-group">
+                <label for="end-date">End Date</label>
+                <input type="date" id="end-date" name="end-date" required>
+            </div>
+            <div class="form-group city-section">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city">
+            </div>
+            <div class="form-group">
+                <label for="city-start-date">City Start Date</label>
+                <input type="date" id="city-start-date" name="city-start-date">
+            </div>
+            <div class="form-group">
+                <label for="city-end-date">City End Date</label>
+                <input type="date" id="city-end-date" name="city-end-date">
+            </div>
+            <div class="form-group">
+                <button type="button" id="add-city-button">Add City</button>
+            </div>
+            <div id="cities-list"></div>
+            <div class="form-group">
+                <label for="tourguide">Tour Guide</label>
+                <select name="tourguide" id="tourguide">
+                    <option value="" disabled selected>-- Select your tour guide --</option>
+                    <option value="Hiro Tanaka">Hiro Tanaka</option>
+                    <option value="Luca Rossi">Luca Rossi</option>
+                    <option value="Emma Wilson">Emma Wilson</option>
+                    <option value="Carlos Silva">Carlos Silva</option>
+                </select>
+            </div>
+            <button type="button" id="submit_button">Save</button>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById("travel-form");
+            const add_city_button = document.getElementById("add-city-button");
+            const submit_button = document.getElementById("submit_button");
+            const cities_list = document.getElementById("cities-list");
+            let cities = [];
+
+            add_city_button.addEventListener("click", () => {
+                const city = {
+                    city_name: document.getElementById("city").value,
+                    start_date: document.getElementById("city-start-date").value,
+                    end_date: document.getElementById("city-end-date").value
+                };
+
+                if (city.city_name && city.start_date && city.end_date) {
+                    cities.push(city);
+                    const cityElement = document.createElement("div");
+        
+                    cityElement.textContent = `${city.city_name}: ${city.start_date} / ${city.end_date}`;
+        
+                    cities_list.appendChild(cityElement);
+
+                };
+
+                document.getElementById("city").value = "";
+                document.getElementById("city-start-date").value = "";
+                document.getElementById("city-end-date").value = "";
+                
+            });
+            
+            console.log(cities);
+            
+            submit_button.addEventListener("click", (event) => {
+                event.preventDefault();
+
+                const new_travel = {
+                    destination_country: document.getElementById("country").value,
+                    start_date: document.getElementById("start-date").value,
+                    end_date: document.getElementById("end-date").value,
+                    cities: cities,
+                    tour_guide: document.getElementById("tourguide").value
+                };
+
+                axios.post("/api/mytravels", new_travel)
+                    .then(response => {
+                        console.log(JSON.stringify(new_travel));
+                        alert("Travel created successfully!");
+                        form.reset();
+                    })
+                    .catch(error => {
+                        console.error("There was an error creating the travel!", error);
+                    });
+            });
+        });
+    </script>
 </body>
 </html>

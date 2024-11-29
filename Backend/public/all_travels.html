@@ -6,8 +6,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Travel List</title>
+    <style rel="stylesheet" href="styles/all_travels.css"></style>
 </head>
 <body>
-    <h1>All travels</h1>
+    <a href='http://localhost:8084/' class='home-button'>Home</a>
+    <h1>Your saved Travels</h1>
+    <button id="reload" class="reload-button">Reload</button>
+    <div id="travel_list" class="travel_list_container"></div>
+    <script src= "https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        async function load_travels() {
+            try {
+                // 1. Fetch the list of travels from the server
+                const travel_list = await axios.get('http://localhost:8084/api/mytravels')
+                // 2. Get the data from the response
+                let travels = travel_list.data;
+            
+                // 3. Select the travel list container from the HTML
+                const travel_list_container = document.getElementById('travel_list')
+                // 4. Check if the container exists
+                if (travel_list_container) {
+                    // Clear previous content
+                    travel_list_container.innerHTML = '';
+                
+                    // 5. Loop through the travels array and display each travel's information
+                    travels.forEach((travel) => {
+                        // Create elements to display the travel's details
+                        const travel_card = document.createElement('div');
+                        travel_card.className = 'travel-card';
+                    
+                        const destination_country = document.createElement('h2');
+                        destination_country.textContent = travel.destination_country;
+
+                        const start_date = document.createElement('p');
+                        start_date.textContent = "Start Date: " + travel.start_date;
+
+                        const end_date = document.createElement('p');
+                        end_date.textContent = "End Date: " + travel.end_date;
+
+                        travel_card.appendChild(destination_country);
+                        travel_card.appendChild(start_date);
+                        travel_card.appendChild(end_date);
+
+                        travel.cities.forEach((city) => {
+                            const city_name = document.createElement('h3');
+                            const city_start_date = document.createElement('p');
+                            const city_end_date = document.createElement('p');
+                            city_name.textContent = city.name
+                            city_start_date.textContent = "Start Date: " + city.start_date;
+                            city_end_date.textContent = "End Date: " + city.end_date;
+                            travel_card.appendChild(city_name);
+                            travel_card.appendChild(city_start_date);
+                            travel_card.appendChild(city_end_date);
+                        });
+
+                        const tourguide = document.createElement('p');
+                        tourguide.textContent = "Tour Guide: " + travel.tour_guide.name;
+                        
+                        travel_card.appendChild(tourguide);
+                    
+                        // Append the travel_card to the container
+                        travel_list_container.appendChild(travel_card);
+                    });
+                }
+            } catch (error) {
+                console.error("Error while loading list of travels:", error);
+            }
+        }
+        // Load travels without pressing button
+        load_travels()
+        // Attribute Function to Button
+        document.getElementById("reload").addEventListener("click", load_travels)
+    </script>
 </body>
 </html>

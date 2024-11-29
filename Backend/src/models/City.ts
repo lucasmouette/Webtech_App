@@ -2,11 +2,13 @@
 
 export class City {
     name: string;
-    stay_days: number;
+    start_date: string;
+    end_date: string;
   
-    constructor(name: string, stay_days: number) {
+    constructor(name: string, start_date: string, end_date: string) {
       this.name = name;
-      this.stay_days = stay_days;
+      this.start_date = start_date;
+      this.end_date = end_date;
     }
   
   }

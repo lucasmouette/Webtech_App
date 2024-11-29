@@ -26,23 +26,4 @@ export class Travel {
     this.cities = cities;
     this.tour_guide = tour_guide;
   }
-
-  // Gibt alle Details der Reise zurück
-  // getDetails() {
-  //   const cityDetails = [];
-  
-  //   for (let i = 0; i < this.cities.length; i++) {
-  //     const city = this.cities[i];
-  //     // cityDetails.push(city.getDetails());
-  //   }
-  
-    // return {
-    //   id: this.id,
-    //   destination_country: this.destination_country,
-    //   start_date: this.start_date,
-    //   end_date: this.end_date,
-    //   cities: cityDetails,
-    //   // tour_guide: this.tour_guide.getDetails(),
-    // };
-  // }
 }

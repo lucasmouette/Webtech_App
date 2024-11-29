@@ -3,6 +3,8 @@
 import { Request, Response } from "express";
 import { Travel } from "../models/travel";
 import { filter_for_travel_by_id, push_to_travel, update_travel_by_id, delete_all_travels, delete_travel_by_id, get_all_travels } from "../services/travel_service"
+import { id_counter } from "../utils/id_counter";
+import { travel_list } from "../models/data/travel_list";
 
 // Alle Reisen aus travel_list.ts anzeigen
 export const get_travels = (response: Response) => {
@@ -31,8 +33,16 @@ export const find_travel_by_id = (request: Request, response: Response) => {
 
 // Reisen anlegen
 export const add_travel = (request: Request, response: Response) => {
+    console.log(typeof(request.body));
 
-    const new_travel_created = new Travel(request.body.id, request.body.destination_country, request.body.start_date, request.body.end_date, request.body.cities, request.body.tour_guide);
+    const new_id = id_counter(travel_list.length).toString();
+    const destination_country = request.body.destination_country;
+    const start_date = request.body.start_date;
+    const end_date = request.body.end_date;
+    const cities = request.body.cities;
+    const tour_guide = request.body.tour_guide;
+    const new_travel_created = new Travel(new_id, destination_country, start_date, end_date, cities, tour_guide);
+    console.log(new_travel_created);
     const add_to_my_travels =  push_to_travel(new_travel_created);
 
     if(add_to_my_travels) {

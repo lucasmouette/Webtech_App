@@ -49,9 +49,10 @@ export const create_travel = (
 };
 
 // Reise hinzufügen
-export const push_to_travel = (travel: Travel): Travel => {
-    travel_list.push(travel);
-    return travel;
+export const push_to_travel = (new_travel: Travel): Travel => {
+    
+    travel_list.push(new_travel);
+    return new_travel;
 }
 
 // Reise aktualisieren
