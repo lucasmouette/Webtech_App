@@ -1,14 +1,45 @@
 /* Code written by Lucas Mouette */
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: Roboto;
     margin: 20px;
-    background-color: #f4f4f9;
+    background-color: rgba(48, 169, 157, 0.5)
+}
+
+.nav-container {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    width:100%;
+    align-items: center;
+    padding: 10px 40px;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    color:#ffffff;
+    background-color:  rgba(0, 0, 0, 0.5);
+}
+
+.nav-container h3 {
+    color: rgba(99, 230,190)
+}
+
+.nav-links {
+    display: flex;
+    gap: 4rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 10px;
+    color: #ffffff;
 }
 
 .form-container {
     max-width: 600px;
     margin: auto;
+    margin-top: 100px;
     padding: 20px;
     background: white;
     border: 1px solid #ccc;
@@ -41,7 +72,7 @@ input, button {
 }
 
 button {
-    background-color: #007BFF;
+    background-color: #30A99D;
     color: white;
     font-size: 16px;
     cursor: pointer;
@@ -49,7 +80,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #30A99D;
 }
 
 .city-section {

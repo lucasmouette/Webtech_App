@@ -6,16 +6,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create New Travel</title>
-    <link rel="stylesheet" href="./styles/add_travel.css">
+    <link rel="stylesheet" href="./styles/form.css">
 </head>
 <body>
-    <a href='http://localhost:8084/' class='home-button'>Home</a>
+    <div class="nav-container">
+        <h3>Travel Buddy</h3>
+        <nav class="nav-links">
+            <a href="/">Home</a>
+            <a href="/all_travels.html">My Travels</a>
+            <a href="">About us</a>
+            <a href="">Contact</a>
+        </nav>
+        <img src="./img/profile.svg" alt="Profile icon" width="20" height="20">
+    </div>
     <div class="form-container">
         <h1>Create New Travel</h1>
         <form id="travel-form">
             <div class="form-group">
                 <label for="country">Country</label>
-                <input type="text" id="country" name="country" required>
+                <select name="country" id="country">
+                    <option value="" disabled selected>-- Select your country --</option>
+                    <option value="Germany">Germany</option>
+                    <option value="France">France</option>
+                    <option value="Italy">Italy</option>
+                    <option value="Spain">Spain</option>
+                </select>
             </div>
             <div class="form-group">
                 <label for="start-date">Start Date</label>
@@ -88,7 +103,7 @@
             
             console.log(cities);
             
-            submit_button.addEventListener("click", (event) => {
+            submit_button.addEventListener("click", async (event) => {
                 event.preventDefault();
 
                 const new_travel = {
@@ -99,7 +114,7 @@
                     tour_guide: document.getElementById("tourguide").value
                 };
 
-                axios.post("/api/mytravels", new_travel)
+                await axios.post("/api/mytravels", new_travel)
                     .then(response => {
                         console.log(JSON.stringify(new_travel));
                         alert("Travel created successfully!");
