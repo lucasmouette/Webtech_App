@@ -10,5 +10,4 @@ export class City {
       this.start_date = start_date;
       this.end_date = end_date;
     }
-  
   }

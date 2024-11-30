@@ -26,17 +26,18 @@
     <script>
         async function load_travels() {
         try {
-            // 1. Fetch the list of travels from the server
+            // Fetch the list of travels from the server
             const travel_list = await axios.get('http://localhost:8084/api/mytravels');
-            // 2. Get the data from the response
+            // Get the data from the response
             const travels = travel_list.data;
-            // 3. Select the travel list container from the HTML
+            console.log(travel_list.data)
+            // Select the travel list container from the HTML
             const travel_list_container = document.getElementById('travel_list');
-            // 4. Check if the container exists
+            // Check if the container exists
             if (travel_list_container) {
                 // Clear previous content
                 travel_list_container.innerHTML = '';
-                // 5. Loop through the travels array and display each travel's information
+                // Loop through the travels array and display each travel's information
                 travels.forEach((travel) => {
                     // Create elements to display the travel's details
                     const travel_card = document.createElement('div');
@@ -64,7 +65,7 @@
                         let city_date_string = `${city.start_date}-${city.end_date}`;
                         let city_date_split = city_date_string.split('-');
                         city_item.className = 'city-item';
-                        city_date.innerHTML = `<span>${city.name}:</span> ${city_date_split[2]}/${city_date_split[1]}/${city_date_split[0]} - ${city_date_split[5]}/${city_date_split[4]}/${city_date_split[3]}`;
+                        city_date.innerHTML = `<span>${city.city_name}:</span> ${city_date_split[2]}/${city_date_split[1]}/${city_date_split[0]} - ${city_date_split[5]}/${city_date_split[4]}/${city_date_split[3]}`;
                         city_item.appendChild(city_date);
                         city_list.appendChild(city_item);
                     });
@@ -72,7 +73,7 @@
                     travel_details.appendChild(city_list);
 
                     const tourguide = document.createElement('p');
-                    tourguide.innerHTML = `<span>Tour Guide:</span> ${travel.tour_guide.name}`;
+                    tourguide.innerHTML = `<span>Tour Guide:</span> ${travel.tour_guide}`;
                     travel_details.appendChild(tourguide);
 
                     travel_card.appendChild(travel_details);

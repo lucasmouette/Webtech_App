@@ -5,12 +5,12 @@ import { travel_list } from "../models/data/travel_list";
 import { City } from "../models/city";
 import { TourGuide } from "../models/tour_guide";
 
-// Alle Reisen suchen
+// Show all travels from travel_list.ts
 export const get_all_travels = (): Travel[] => {
     return travel_list;
 };
 
-// Reise suchen
+// Search for travel
 export const filter_for_travel_by_id = (id: string): Travel | null => {
     let mytravel: Travel = {id: "", destination_country: "", start_date: "", end_date: "", cities: [], tour_guide: {name: "", spoken_languages: []}};
     travel_list.map((el) => {
@@ -25,7 +25,7 @@ export const filter_for_travel_by_id = (id: string): Travel | null => {
     return null;
 }
 
-// Reise erstellen
+// Create travel
 export const create_travel = (
     id: string,
     destination_country: string,
@@ -34,7 +34,7 @@ export const create_travel = (
     cities: City[],
     tour_guide: TourGuide
     ): Travel => {
-    // Erstellt ein neues Travel-Objekt mit den übergebenen Werten
+        // Create a new Travel object with the given values
     const new_travel = new Travel(
         id,
         destination_country,
@@ -48,14 +48,14 @@ export const create_travel = (
     return new_travel;
 };
 
-// Reise hinzufügen
+// Add travel
 export const push_to_travel = (new_travel: Travel): Travel => {
     
     travel_list.push(new_travel);
     return new_travel;
 }
 
-// Reise aktualisieren
+// Update travel
 export const update_travel_by_id = (id: string, data: Travel ) => {
     const updated_travel = travel_list.find((el: Travel) => {
         if(el.id === id) {
@@ -71,7 +71,7 @@ export const update_travel_by_id = (id: string, data: Travel ) => {
     };
 };
 
-// Alle Reisen löschen
+// Delete all travels
 export const delete_all_travels = (): Travel[] => {
     while (travel_list.length > 0) {
         travel_list.pop();
@@ -80,7 +80,7 @@ export const delete_all_travels = (): Travel[] => {
     return travel_list;
 };
 
-// Reise anhand der id löschen
+// Delete travel by ID
 export const delete_travel_by_id = (id: string): Travel | null => {
     const look_for_id = travel_list.find((el: Travel) => {
         if(el.id === id) {

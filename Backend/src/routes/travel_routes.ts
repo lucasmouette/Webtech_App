@@ -12,32 +12,32 @@ import {
 
 const router = express.Router();
 
-// Alle Reisen anzeigen
+// Show all travels
 router.get("/api/mytravels", (request: Request, response: Response) => {
     get_travels(response);
 });
 
-// Reise anhand der ID anzeigen
+// Show travel with specific ID
 router.get("/api/mytravels/:id", (request: Request, response: Response) => {
     find_travel_by_id(request, response);
 });
 
-// Reisen anlegen
+// Create travel
 router.post("/api/mytravels", (request: Request, response: Response) => {
     add_travel(request, response);
 });
 
-// Reise aktualisieren
+// Update travel
 router.put("/api/mytravels/:id", (request: Request, response: Response) => {
     update_travel(request, response);
 });
 
-// Alle Reisen löschen
+// Delete all travels
 router.delete("/api/mytravels", (request: Request, response: Response) => {
     delete_all_my_travels(request, response);
 });
 
-// Reise anhand der ID löschen
+// Delete travel by ID
 router.delete("/api/mytravels/:id", (request: Request, response: Response) => {
     delete_travel(request, response);
 });

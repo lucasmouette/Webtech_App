@@ -138,4 +138,4 @@ export const travel_list: Travel[] = [
       spoken_languages: ["Portuguese", "English"]
     }
   }
-]; // Temporäres Array für CRUD
+]; // Mock data for testing CRUD operations

@@ -6,7 +6,7 @@ import { filter_for_travel_by_id, push_to_travel, update_travel_by_id, delete_al
 import { id_counter } from "../utils/id_counter";
 import { travel_list } from "../models/data/travel_list";
 
-// Alle Reisen aus travel_list.ts anzeigen
+// Show all travels from travel_list.ts
 export const get_travels = (response: Response) => {
     const all_travels = get_all_travels();
 
@@ -17,7 +17,7 @@ export const get_travels = (response: Response) => {
     };
 };
 
-// Reise anhand der ID finden
+// Show travel with specific ID
 export const find_travel_by_id = (request: Request, response: Response) => {
     const my_id = request.params.id;
     const travel_found = filter_for_travel_by_id(my_id);
@@ -31,7 +31,7 @@ export const find_travel_by_id = (request: Request, response: Response) => {
     };
 };
 
-// Reisen anlegen
+// Create travel
 export const add_travel = (request: Request, response: Response) => {
     console.log(typeof(request.body));
 
@@ -52,7 +52,7 @@ export const add_travel = (request: Request, response: Response) => {
     };
 };
 
-// Reise aktualisieren
+// Update travel
 export const update_travel = (request: Request, response: Response) => {
 
     const temp_id: string = request.params.id;
@@ -66,7 +66,7 @@ export const update_travel = (request: Request, response: Response) => {
     };
 };
 
-// Alle Reisen löschen
+// Delete all travels
 export const delete_all_my_travels = (request: Request, response: Response): void => {
     
     const remaining_travels = delete_all_travels();
@@ -78,7 +78,7 @@ export const delete_all_my_travels = (request: Request, response: Response): voi
     };
 };
 
-// Reise anhand der ID löschen
+// Delete travel by ID
 export const delete_travel = (request: Request, response: Response) => {
 
     const temp_id: string = request.params.id;
