@@ -73,7 +73,7 @@
                     travel_details.appendChild(city_list);
 
                     const tourguide = document.createElement('p');
-                    tourguide.innerHTML = `<span>Tour Guide:</span> ${travel.tour_guide}`;
+                    tourguide.innerHTML = `<span>Tour Guide:</span> ${travel.tour_guide.name}`;
                     travel_details.appendChild(tourguide);
 
                     travel_card.appendChild(travel_details);

@@ -111,7 +111,7 @@
                     start_date: document.getElementById("start-date").value,
                     end_date: document.getElementById("end-date").value,
                     cities: cities,
-                    tour_guide: document.getElementById("tourguide").value
+                    tour_guide: {name: document.getElementById("tourguide").value, spoken_languages: ["English"]} // Hardcoded for now
                 };
 
                 await axios.post("/api/mytravels", new_travel)

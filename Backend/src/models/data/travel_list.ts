@@ -10,17 +10,17 @@ export const travel_list: Travel[] = [
     end_date: "2024-08-15",
     cities: [
       {
-        name: "Tokyo",
+        city_name: "Tokyo",
         start_date: "2024-08-01",
         end_date: "2024-08-07"
       },
       {
-        name: "Kyoto",
+        city_name: "Kyoto",
         start_date: "2024-08-07",
         end_date: "2024-08-12"
       },
       {
-        name: "Osaka",
+        city_name: "Osaka",
         start_date: "2024-08-12",
         end_date: "2024-08-15"
       }
@@ -37,17 +37,17 @@ export const travel_list: Travel[] = [
     end_date: "2024-05-25",
     cities: [
       {
-        name: "Rome",
+        city_name: "Rome",
         start_date: "2024-05-10",
         end_date: "2024-05-15"
       },
       {
-        name: "Florence",
+        city_name: "Florence",
         start_date: "2024-05-15",
         end_date: "2024-05-20"
       },
       {
-        name: "Venice",
+        city_name: "Venice",
         start_date: "2024-05-20",
         end_date: "2024-05-25"
       }
@@ -64,17 +64,17 @@ export const travel_list: Travel[] = [
     end_date: "2024-11-20",
     cities: [
       {
-        name: "Sydney",
+        city_name: "Sydney",
         start_date: "2024-11-01",
         end_date: "2024-11-06"
       },
       {
-        name: "Melbourne",
+        city_name: "Melbourne",
         start_date: "2024-11-06",
         end_date: "2024-11-12"
       },
       {
-        name: "Brisbane",
+        city_name: "Brisbane",
         start_date: "2024-11-12",
         end_date: "2024-11-20"
       }
@@ -91,17 +91,17 @@ export const travel_list: Travel[] = [
     end_date: "2024-09-15",
     cities: [
       {
-        name: "Toronto",
+        city_name: "Toronto",
         start_date: "2024-09-01",
         end_date: "2024-09-05"
       },
       {
-        name: "Montreal",
+        city_name: "Montreal",
         start_date: "2024-09-05",
         end_date: "2024-09-10"
       },
       {
-        name: "Vancouver",
+        city_name: "Vancouver",
         start_date: "2024-09-10",
         end_date: "2024-09-15"
       }
@@ -118,17 +118,17 @@ export const travel_list: Travel[] = [
     end_date: "2024-03-14",
     cities: [
       {
-        name: "Rio de Janeiro",
+        city_name: "Rio de Janeiro",
         start_date: "2024-03-01",
         end_date: "2024-03-06"
       },
       {
-        name: "São Paulo",
+        city_name: "São Paulo",
         start_date: "2024-03-06",
         end_date: "2024-03-10"
       },
       {
-        name: "Salvador",
+        city_name: "Salvador",
         start_date: "2024-03-10",
         end_date: "2024-03-14"
       }
