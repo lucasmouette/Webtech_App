@@ -1,0 +1,54 @@
+/* Code written by Lucas Mouette */
+
+.nav__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 60px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav__logo {
+    margin: 0;
+}
+
+.nav__logo a {
+    text-decoration: none;
+    color: var(--accent_color);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.nav__links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav__link {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav__link:hover {
+    color: var(--link_color);
+}
+
+@media (max-width: 768px) {
+    .nav__links {
+        display: none; /* Hide links on smaller screens */
+    }
+
+    .nav__container {
+        justify-content: space-between;
+    }
+
+}

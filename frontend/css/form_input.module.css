@@ -1,0 +1,7 @@
+/* Code written by Lucas Mouette */
+
+.form__group {
+    display: flex;
+    flex-direction: column;
+
+}

@@ -1,0 +1,52 @@
+/* Code written by Lucas Mouette */
+
+.homepage__section {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.homepage__section__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    align-items: center;
+    padding: 20px 60px;
+}
+
+.homepage__section__text h1 {
+    display: flex;
+    color: var(--link_color);
+}
+
+.homepage__section__text p {
+    font-size: var(--body_text);
+}
+
+.homepage__section__text ol {
+    padding: 10px;
+}
+
+.homepage__section__text li {
+    padding: 10px;
+}
+
+.homepage__section__divider {
+    display: flex;
+    margin: 20px;
+}
+
+.homepage__section__image {
+    display: flex;
+    width: 50%;
+    margin: 0;
+    padding: 0;
+    align-items: stretch;
+}
+
+.homepage__section__image img{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
