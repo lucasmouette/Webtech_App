@@ -17,7 +17,7 @@
 
 .homepage__section__text h1 {
     display: flex;
-    color: var(--link_color);
+    color: var(--body_text);
 }
 
 .homepage__section__text p {

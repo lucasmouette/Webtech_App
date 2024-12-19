@@ -1,6 +1,6 @@
 // Code written by Lucas Mouette
 
-import TripForm from "@/components/Form";
+import TripForm from "@/components/BookTrip/Form";
 
 export default function BookTripPage() {
     return (

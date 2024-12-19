@@ -1,0 +1,70 @@
+/* Code written by Lucas Mouette */
+
+.trip_card {
+    position: relative;
+	width: 100%;
+	height: 300px;
+	margin-bottom: 40px;
+	border-radius: 10px;
+	background-color: #fff;
+	border: 2px solid #ddd;
+	font-size: 18px;
+	overflow: hidden;
+	cursor: pointer;
+	box-shadow: 0 4px 21px -12px rgba(0, 0, 0, .66);
+	transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.trip_card:hover {
+	box-shadow: 0 34px 32px -33px rgba(0, 0, 0, .18);
+	transform: translate(0px, -3px);
+}
+
+.trip_card__innerbox {
+    position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.trip_card img {
+    position: absolute;
+	height: 300px;
+	width: 400px;
+	top: 0;
+	left: 0;
+	transition: transform 0.2s ease;
+}
+
+.trip_card__textbox {
+    position: absolute;
+	top: 7%;
+	bottom: 7%;
+	left: 430px;
+	width: calc(100% - 470px);
+	font-size: 17px;
+}
+
+.trip_card__title {
+    font-family: 'Voces', 'Open Sans', arial, sans-serif;
+	font-size: 24px;
+}
+
+.trip_card__subtitle {
+    font-family: 'Voces', 'Open Sans', arial, sans-serif;
+	color: #888;
+}
+
+.trip_card__cities {
+    z-index: 10;
+	font-size: 15px;
+	color: #424242;
+	height: 125px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* .trip_card__buttons {
+
+} */

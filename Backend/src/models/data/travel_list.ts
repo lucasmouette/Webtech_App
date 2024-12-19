@@ -5,6 +5,7 @@ import { Travel } from "../travel";
 export const travel_list: Travel[] = [
   {
     id: "0",
+    name: "Sakura Odyssey",
     destination_country: "Japan",
     start_date: "2024-08-01",
     end_date: "2024-08-15",
@@ -26,12 +27,13 @@ export const travel_list: Travel[] = [
       }
     ],
     tour_guide: {
-      name: "Hiro Tanaka",
+      name: "Hiro Tanaka 🇯🇵",
       spoken_languages: ["Japanese", "English"]
     }
   },
   {
     id: "1",
+    name: "La Dolce Vita",
     destination_country: "Italy",
     start_date: "2024-05-10",
     end_date: "2024-05-25",
@@ -53,12 +55,13 @@ export const travel_list: Travel[] = [
       }
     ],
     tour_guide: {
-      name: "Luca Rossi",
+      name: "Sophia Rossi 🇮🇹",
       spoken_languages: ["Italian", "English"]
     }
   },
   {
     id: "2",
+    name: "Down Under",
     destination_country: "Australia",
     start_date: "2024-11-01",
     end_date: "2024-11-20",
@@ -80,12 +83,13 @@ export const travel_list: Travel[] = [
       }
     ],
     tour_guide: {
-      name: "Emma Wilson",
+      name: "John Smith 🇬🇧",
       spoken_languages: ["English"]
     }
   },
   {
     id: "3",
+    name: "Great White North",
     destination_country: "Canada",
     start_date: "2024-09-01",
     end_date: "2024-09-15",
@@ -107,12 +111,13 @@ export const travel_list: Travel[] = [
       }
     ],
     tour_guide: {
-      name: "Alex Johnson",
+      name: "Lucas Mouette 🇫🇷",
       spoken_languages: ["English", "French"]
     }
   },
   {
     id: "4",
+    name: "Samba & Sun",
     destination_country: "Brazil",
     start_date: "2024-03-01",
     end_date: "2024-03-14",
@@ -134,7 +139,7 @@ export const travel_list: Travel[] = [
       }
     ],
     tour_guide: {
-      name: "Carlos Silva",
+      name: "Carlos Silva 🇵🇹",
       spoken_languages: ["Portuguese", "English"]
     }
   }

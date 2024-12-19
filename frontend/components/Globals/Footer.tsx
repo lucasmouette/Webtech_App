@@ -15,7 +15,7 @@ export default function Footer() {
                     <a href="mailto:mouette@hm.edu">mouette@hm.edu</a>
                 </div>
                 <div className={styles.footer__social}>
-                    <h4>Socials</h4>
+                    <h4>Social</h4>
                     <div className={styles.footer__social__icons}>
                         <a href="https://www.linkedin.com/in/lucas-mouette-65b7b6b3" target="_blank" rel="noopener noreferrer" className={styles.footer__link}><img src="/img/linkedIn-logo.webp" width={20} height={20} alt="LinkedIn" /></a>
                         <a href="https://github.com/lucasmouette/Webtech_App" target="_blank" rel="noopener noreferrer" className={styles.footer__link}><img src="/img/github.webp" width={20} height={20} alt="Github" /></a>
