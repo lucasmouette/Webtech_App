@@ -12,7 +12,7 @@ export default function HomepageSection() {
             </div> */}
             <div className={styles.homepage__section}>
                 <div className={styles.homepage__section__image}>
-                    <img src="/img/japanese-mountain.webp" alt="Japanese Mountain" />
+                    <img loading="lazy" src="/img/japanese-mountain.webp" alt="Japanese Mountain" />
                 </div>
                 <div className={styles.homepage__section__text}>
                     <h1 className={styles.title}>

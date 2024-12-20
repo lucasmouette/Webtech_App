@@ -23,9 +23,9 @@ export default function TripFormInput({form}: {form: Form_Props}) {
             <div className={styles.form__group}>
                 <label htmlFor={form.name}>{form.label}</label>
                 <select id={form.name} name={form.name} defaultValue="placeholder" required>
-                    <option value="placeholder" disabled >-- {form.placeholder} --</option>
-                    {form.option?.map((option) => {
-                        return <option value={option}>{option}</option>
+                    <option key="-1" value="placeholder" disabled >-- {form.placeholder} --</option>
+                    {form.option?.map((option, i) => {
+                        return <option key={i} value={option}>{option}</option>
                     })}
                 </select>
             </div>

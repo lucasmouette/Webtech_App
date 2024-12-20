@@ -47,12 +47,10 @@
 }
 
 .trip_card__title {
-    font-family: 'Voces', 'Open Sans', arial, sans-serif;
 	font-size: 24px;
 }
 
 .trip_card__subtitle {
-    font-family: 'Voces', 'Open Sans', arial, sans-serif;
 	color: #888;
 }
 
