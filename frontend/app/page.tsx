@@ -1,6 +1,4 @@
 // Code written by Lucas Mouette
-
-import styles from "./page.module.css";
 import HomepageSection from "@/components/LandingPage/HomepageSection";
 import HeroSection from "@/components/LandingPage/HeroSection";
 

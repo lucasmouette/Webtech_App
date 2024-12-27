@@ -2,8 +2,7 @@
 
 .homepage__section {
     display: flex;
-    flex-direction: row;
-    width: 100%;
+
 }
 
 .homepage__section__text {
@@ -11,17 +10,22 @@
     flex-direction: column;
     justify-content: center;
     width: 50%;
+    max-width: 50%;
+    padding: 60px;
     align-items: center;
-    padding: 20px 60px;
+
+    font-family: var(--primary-font);
 }
 
 .homepage__section__text h1 {
     display: flex;
-    color: var(--body_text);
+    color: var(--accent_color);
+    font-family: var(--hero-font);
 }
 
 .homepage__section__text p {
     font-size: var(--body_text);
+    font-family: var(--primary-font);
 }
 
 .homepage__section__text ol {
@@ -40,6 +44,8 @@
 .homepage__section__image {
     display: flex;
     width: 50%;
+    min-width: 50%;
+    background-color: red;
     margin: 0;
     padding: 0;
     align-items: stretch;
@@ -47,6 +53,6 @@
 
 .homepage__section__image img{
     width: 100%;
-    height: 500px;
-    object-fit: cover;
+    height: auto;
+    object-fit: stretch;
 }

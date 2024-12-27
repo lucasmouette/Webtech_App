@@ -1,6 +1,6 @@
 // Code written by Lucas Mouette
 
-import styles from "@/css/navbar.module.css";
+import styles from "@/css/Globals/navbar.module.css";
 
 export default function NavBar() {
     return (

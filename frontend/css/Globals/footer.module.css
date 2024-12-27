@@ -3,22 +3,24 @@
     flex-direction: column;
     align-items: center;
     height: fit-content;
-    background-color: var(--link_color);
+    background-color: var(--accent_color);
     justify-content: center;
     padding: 40px;
 }
 
 .footer__container h3 {
-    color: var(--text_color);
+    color: #ffffff;
     font-weight: bold;
     font-size: 1.5rem;
     padding-bottom: 20px;
+    font-family: var(--logo-font);
 }
 
 .footer__info {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-family: var(--primary-font);
     align-items: center;
     width: 100%;
     padding-bottom: 20px;
@@ -57,4 +59,5 @@
 
 .footer__text {
     padding-top: 0;
+    font-family: var(--primary-font);
 }

@@ -1,6 +1,6 @@
 // Code written by Lucas Mouette
 
-import styles from "@/css/hero_section.module.css";
+import styles from "@/css/LandingPage/hero_section.module.css";
 
 export default function HeroSection() {
     return (

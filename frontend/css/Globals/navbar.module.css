@@ -23,6 +23,7 @@
     color: var(--accent_color);
     font-weight: bold;
     font-size: 1.5rem;
+    font-family: var(--logo-font);
 }
 
 .nav__links {
@@ -35,6 +36,7 @@
     color: #333;
     font-size: 1rem;
     font-weight: 500;
+    font-family: var(--primary-font);
     transition: color 0.3s ease;
 }
 

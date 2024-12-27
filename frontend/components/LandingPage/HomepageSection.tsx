@@ -1,6 +1,7 @@
 // Code written by Lucas Mouette
 
-import styles from "@/css/homepage_section.module.css"
+import styles from "@/css/LandingPage/homepage_section.module.css"
+import Image from "next/image";
 
 export default function HomepageSection() {
     return (
@@ -12,7 +13,7 @@ export default function HomepageSection() {
             </div> */}
             <div className={styles.homepage__section}>
                 <div className={styles.homepage__section__image}>
-                    <img loading="lazy" src="/img/japanese-mountain.webp" alt="Japanese Mountain" />
+                    <Image loading="lazy" width={200} height={200} src="/img/japanese-mountain.webp" alt="Japanese Mountain" />
                 </div>
                 <div className={styles.homepage__section__text}>
                     <h1 className={styles.title}>

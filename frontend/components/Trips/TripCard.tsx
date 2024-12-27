@@ -1,18 +1,22 @@
 // Code written by Lucas Mouette
-
+import { delete_trip } from "@/services/delete_trip";
 import { Trips_Props } from "@/types/Trips_Props";
-import styles from "@/css/trip_card.module.css";
+import styles from "@/css/Trips/trip_card.module.css";
+import Link from "next/link";
 
-export default function TripCard({trip}: {trip: Trips_Props}) {
+export default function TripCard({trip, }: {trip: Trips_Props}) {
 
     const format_date = (date: string): string => {
         const [year, month, day] = date.split("-");
         return `${day}/${month}/${year}`;
     };
+    
+    const handleClick = () => { delete_trip(trip.id); };
 
     return (
+
         <div className={styles.trip_card}>
-            <div className={styles.trip_card__innerbox}>
+            <div className={styles.trip_card__image}>
                 {/* <img src="" alt="" /> */}
             </div>
             <div className={styles.trip_card__textbox}>
@@ -26,7 +30,7 @@ export default function TripCard({trip}: {trip: Trips_Props}) {
                 <div className={styles.trip_card__cities}>
                     <ul>
                         {trip.cities.map((city, index) => (
-                            <li key={index}>{city.city_name} ({format_date(city.start_date)} - {format_date(city.end_date)})</li>
+                            <li key={index}>{city.city_name}</li>
                         ))}
                     </ul>
                 </div>
@@ -34,8 +38,10 @@ export default function TripCard({trip}: {trip: Trips_Props}) {
                     <p>Tour Guide: {trip.tour_guide.name}</p>
                 </div>
                 <div className={styles.trip__buttons}>
-                    <button className={styles.trip__info_button}>Info</button>
-                    <button className={styles.trip__delete_button}>Delete</button>
+                <Link href={`/my_trips/${trip.id}`} className={styles.trip__info_button}>
+                    Info
+                </Link>
+                    <button className={styles.trip__delete_button} style={{zIndex: 10}} onClick={handleClick}>Delete</button>
                 </div>
             </div>
         </div>

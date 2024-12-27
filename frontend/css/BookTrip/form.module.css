@@ -2,6 +2,7 @@
 
 .trip_form__container {
     background-color: #3D3D3D;
+    font-family: var(--primary-font);
     margin: 60px auto;
     max-width: 800px;
     padding: 20px;
@@ -13,7 +14,7 @@
 }
 
 .trip_form__title {
-    font-family: "SF Pro Display", sans-serif;
+    font-family: var(--primary-font);
     font-size: 2rem;
     font-weight: bold;
     color: var(--accent_color);
@@ -60,7 +61,7 @@
 }
 
 .button__add_city, .button__save {
-    font-family: "SF Pro Text", sans-serif;
+    font-family: var(--primary-font);
     font-size: 1rem;
     padding: 10px 20px;
     border: none;

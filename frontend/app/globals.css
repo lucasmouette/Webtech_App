@@ -1,10 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Sigmar+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 :root {
   --background: #f8f8f8;
   --foreground: #171717;
+  --logo-font: 'Sigmar One', regular;
+  --hero-font: 'Lobster', serif;
+  --primary-font: 'SF Pro Display', sans-serif;
 }
 
 * {
-  font-family: Roboto;
   --accent_color:  #1BAFBF;
   --background_color: #f8f8f8;
   --text_color: #0D0D0D;

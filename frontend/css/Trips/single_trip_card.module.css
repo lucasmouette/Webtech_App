@@ -1,0 +1,91 @@
+/* Code written by Lucas Mouette */
+
+.single_trip__container {
+    display: flex;
+    font-family: var(--primary-font);
+    justify-content: center;
+    align-items: center;
+    height: 100svh;
+}
+
+.single_trip__wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.single_trip__wrapper h1{
+    display: flex;
+    justify-content: center;
+    margin: 40px;
+    font-size: var(--title_text);
+}
+
+.single_trip__card {
+    display: flex;
+    width: 1000px;
+    height: auto;
+    background-color: var(--accent_color);
+    border-radius: 15px;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.single_trip__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.single_trip__title h2 {
+    font-family: var(--hero-font);
+    color: #ffffff;
+    font-size: var(--title_text);
+}
+
+.single_trip__title h3 {
+    font-size: var(--subtitle_text);
+    color: var(--body_text)
+}
+
+.single_trip__date {
+    font-size: var(--body_text);
+    color:#ffffff;
+}
+
+.single_trip__cities {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.single_trip__city_name {
+    color: #000000;
+    font-weight: bold;
+}
+
+.single_trip__city_date {
+    color: #ffffff;
+}
+
+.single_trip__tour_guide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 30px;
+}
+
+.single_trip__edit_button {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+}
+
+.single_trip__back_button {
+    position: fixed;
+    left: 50px;
+    top: 50svh;
+}

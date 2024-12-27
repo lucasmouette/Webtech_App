@@ -1,6 +1,6 @@
 // Code written by Lucas Mouette
 
-import styles from "@/css/footer.module.css";
+import styles from "@/css/Globals/footer.module.css";
 
 export default function Footer() {
     return (
