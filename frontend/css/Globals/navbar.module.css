@@ -48,9 +48,7 @@
     .nav__links {
         display: none; /* Hide links on smaller screens */
     }
-
     .nav__container {
         justify-content: space-between;
     }
-
 }

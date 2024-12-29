@@ -1,91 +1,104 @@
 /* Code written by Lucas Mouette */
 
-.trip_form__container {
-    background-color: #3D3D3D;
-    font-family: var(--primary-font);
-    margin: 60px auto;
-    max-width: 800px;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.trip_form {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-}
-
-.trip_form__title {
-    font-family: var(--primary-font);
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--accent_color);
-    margin-bottom: 20px;
-}
-
-.trip_form__wrapper {
+    background-image: url(/img/yosemite.webp);
+    height: 100vh;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 100%;
 }
 
-.form__group {
+.trip_form__container {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
-    color: white;
+    font-family: var(--primary-font);
+    width: 800px;
+    height: 80svh;
+    background: linear-gradient(45deg,white, rgba(255, 255, 255, 0.498));
+    backdrop-filter: blur(10px);
+    border: 1px solid white;
+    box-shadow: 10px 10px 10px rgba(97, 97, 97, 0.129);
+    border-radius: 15px;
+    align-items: center;
+    justify-content: center;
+    margin: 40px;
+    z-index: 10;
 }
 
-.form__group input[type="text"],
-.form__group input[type="date"],
-.form__group select {
+.trip_form__container h3 {
+    margin-bottom: 5px; 
+}
+
+.input_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form__header {
+    display: flex;
+    font-family: var(--hero-font);
+    color: var(--accent_color);
+    font-size: var(--title_text);
+    justify-content: center;
+}
+
+.form__trip_name {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.form__trip_name input[type="text"],
+.form__trip_duration input[type="date"] {
     border-radius: 10px;
     padding: 10px;
 }
 
-.form__group_country,
-.form__group_city {
+.form__country {
     display: flex;
     flex-direction: column;
 }
 
-.form__group_country_dates,
-.form__group_city_dates {
+.form__country select {
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+}
+
+.form__city_selector input[type="text"],
+.form__city_selector input[type="date"] {
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.form__city_selector button,
+.form__city_display button {
+    border-radius: 10px;
+    padding: 10px;
+    margin-left: 20px;
+}
+
+.form__tour_guide select {
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 5px;
+    width: 100%
+}
+
+.form__save_button {
     display: flex;
-    flex-direction: row;
-    width: 60px;
-    justify-content: space-between;
+    justify-content: center;
 }
 
-
-#trip_form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.button__add_city, .button__save {
-    font-family: var(--primary-font);
-    font-size: 1rem;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.button__add_city {
+.form__save_button button {
+    border-radius: 10px;
+    padding: 10px 40px; 
+    width: 100%;
     background-color: var(--accent_color);
-    color: white;
+    color: #ffffff;
     font-weight: bold;
-}
-
-.button__add_city:hover {
-    background-color: #168f9c;
-}
-
-.button__save {
-    background-color: #F2CB05;
-    color: black;
-    font-weight: bold;
-}
-
-.button__save:hover {
-    background-color: #F2E205;
 }

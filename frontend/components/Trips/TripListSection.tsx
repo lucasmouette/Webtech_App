@@ -1,4 +1,5 @@
 // Code written by Lucas Mouette
+
 'use client'
 
 import React, { useState, useEffect }  from "react";
@@ -19,11 +20,10 @@ export default function TripListSection() {
                 setTripList(trip_list_data);
             }
         };
-
+        
         loadTrips();
 
     }, [trip_list]);
-
 
     return (
         <div className={styles.trip__list_container}>

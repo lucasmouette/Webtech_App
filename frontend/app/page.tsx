@@ -1,4 +1,5 @@
 // Code written by Lucas Mouette
+
 import HomepageSection from "@/components/LandingPage/HomepageSection";
 import HeroSection from "@/components/LandingPage/HeroSection";
 

@@ -89,3 +89,76 @@
     left: 50px;
     top: 50svh;
 }
+
+.edit_single_trip__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px;
+    max-height: 80svh;
+    background-color: var(--accent_color);
+    border: 1px solid white;
+    box-shadow: 10px 10px 10px rgba(97, 97, 97, 0.129);
+    border-radius: 15px;
+    font-family: var(--primary-font);
+    gap: 1rem;
+    margin: 40px;
+    padding: 40px;
+}
+
+.edit_single_trip__container input[type="text"],
+.edit_single_trip__container input[type="date"],
+.edit_single_trip__container select {
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.edit_single_trip__trip_name,
+.edit_single_trip__trip_duration_start_date,
+.edit_single_trip__trip_duration_end_date,
+.edit_single_trip__country,
+.edit_single_trip__cities,
+.edit_single_trip__city_display_duration_start_date,
+.edit_single_trip__city_display_duration_end_date
+ {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+.edit_single_trip__trip_duration,
+.edit_single_trip__city_display_duration {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.edit_single_trip__form_buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding-top: 20px;
+}
+
+.edit_single_trip__form_buttons button,
+.edit_single_trip__buttons button {
+    border-radius: 10px;
+    padding: 10px 40px;
+}
+
+.edit_single_trip__city_display {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit_single_trip__delete_button {
+    border-radius: 10px;
+}

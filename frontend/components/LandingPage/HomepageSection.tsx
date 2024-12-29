@@ -6,11 +6,6 @@ import Image from "next/image";
 export default function HomepageSection() {
     return (
         <div className={styles.homepage__section__container}>
-            {/* <div className={styles.homepage__section__divider}>
-                <p>
-                    ---------- WHY CHOOSE US
-                </p>
-            </div> */}
             <div className={styles.homepage__section}>
                 <div className={styles.homepage__section__image}>
                     <Image loading="lazy" width={200} height={200} src="/img/japanese-mountain.webp" alt="Japanese Mountain" />

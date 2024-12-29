@@ -31,9 +31,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <div style={{display: "grid", gridTemplateRows: "auto 1fr auto", minHeight: "100vh"}}>
-        <Navbar />
-        {children}
-        <Footer />
+          <Navbar />
+          {children}
+          <Footer />
         </div>
       </body>
     </html>

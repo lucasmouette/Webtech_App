@@ -1,18 +1,19 @@
 // Code written by Lucas Mouette
 
 import styles from "@/css/Globals/navbar.module.css";
+import Link from "next/link";
 
 export default function NavBar() {
     return (
         <header className={styles.nav__container}>
             <div className={styles.nav__logo}>
-                <a href="/">Travel Buddy</a>
+                <Link href="/">Travel Buddy</Link>
             </div>
             <nav className={styles.nav__links}>
-                <a href="/" className={styles.nav__link}>Home</a>
-                <a href="/book_trip" className={styles.nav__link}>Book a Trip</a>
-                <a href="/my_trips" className={styles.nav__link}>My Trips</a>
-                <a href="/about_us" className={styles.nav__link}>About us</a>
+                <Link href="/" className={styles.nav__link}>Home</Link>
+                <Link href="/book_trip" className={styles.nav__link}>Book a Trip</Link>
+                <Link href="/my_trips" className={styles.nav__link}>My Trips</Link>
+                <Link href="/about_us" className={styles.nav__link}>About us</Link>
             </nav>
         </header>
     );

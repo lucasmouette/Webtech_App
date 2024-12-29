@@ -1,8 +1,10 @@
 // Code written by Lucas Mouette
+
 import { delete_trip } from "@/services/delete_trip";
 import { Trips_Props } from "@/types/Trips_Props";
 import styles from "@/css/Trips/trip_card.module.css";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function TripCard({trip, }: {trip: Trips_Props}) {
 
@@ -16,9 +18,6 @@ export default function TripCard({trip, }: {trip: Trips_Props}) {
     return (
 
         <div className={styles.trip_card}>
-            <div className={styles.trip_card__image}>
-                {/* <img src="" alt="" /> */}
-            </div>
             <div className={styles.trip_card__textbox}>
                 <div className={styles.trip_card__title}>
                     <h2>{trip.name}</h2>
@@ -27,21 +26,11 @@ export default function TripCard({trip, }: {trip: Trips_Props}) {
                 <div className={styles.trip_card__subtitle}>
                     <p>{`${format_date(trip.start_date)} - ${format_date(trip.end_date)}`}</p>
                 </div>
-                <div className={styles.trip_card__cities}>
-                    <ul>
-                        {trip.cities.map((city, index) => (
-                            <li key={index}>{city.city_name}</li>
-                        ))}
-                    </ul>
-                </div>
-                <div className={styles.trip_card__guide}>
-                    <p>Tour Guide: {trip.tour_guide.name}</p>
-                </div>
                 <div className={styles.trip__buttons}>
-                <Link href={`/my_trips/${trip.id}`} className={styles.trip__info_button}>
-                    Info
-                </Link>
-                    <button className={styles.trip__delete_button} style={{zIndex: 10}} onClick={handleClick}>Delete</button>
+                    <Link href={`/my_trips/${trip.id}`} className={styles.trip__info_button}>
+                        <Image src="/assets/info.svg" alt="More Info" width={24} height={24} />
+                    </Link>
+                    <Image src="/assets/trash.svg" alt="Delete Trip" width={24} height={24} className={styles.trip__delete_button} onClick={handleClick}/>
                 </div>
             </div>
         </div>

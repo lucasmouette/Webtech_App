@@ -17,6 +17,3 @@ export default function Button ({button}: {button: Button_Props}) {
         )
     }
 }
-
-// was muss ich mitgeben -> button props bsp. ID
-// onClick Funktion 
