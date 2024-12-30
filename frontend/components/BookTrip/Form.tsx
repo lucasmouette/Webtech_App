@@ -100,7 +100,7 @@ export default function Form() {
     const handleTourGuideData = (e: React.FormEvent<HTMLSelectElement>) => {
         setFormData({
             ...formData,
-            tour_guide: {
+            tour_guide: { 
                 name: e.currentTarget.value,
                 spoken_languages: tourguides.find(tourguide => tourguide.name === e.currentTarget.value)?.spoken_languages || []
             }
@@ -115,7 +115,7 @@ export default function Form() {
         });
     }
 
-    const handleFormSubmit = async (e: any) => {
+    const handleFormSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if(formData.cities.length){
             setIsError(false)
@@ -163,14 +163,14 @@ export default function Form() {
             </div>
             <div className={`${styles.form__trip_name} ${styles.input_wrapper}`}>
                 <label htmlFor="name"><h3>Trip:</h3></label>
-                <input type="text" id="name" name="name" onChange={handleFormData} required placeholder="Name your Trip"/>
+                <input type="text" id="name" name="name" onChange={handleFormData} value={formData.name} required placeholder="Name your Trip"/>
             </div>
             <div className={`${styles.form__trip_duration} ${styles.input_wrapper}`}>
                 <label htmlFor="trip_duration"><h3>Trip Duration:</h3></label>
-                <DoubleDateInput required start_date={formData.start_date} end_date={formData.end_date}onChange={handleFormData}/>
+                <DoubleDateInput required start_date={formData.start_date} end_date={formData.end_date} onChange={handleFormData}/>
             </div>
             <div className={`${styles.form__country} ${styles.input_wrapper}`}>
-                <OptionInput label="Country" id="destination_country" options={countries} onChange={handleFormData}/>
+                <OptionInput label="Country" id="destination_country" options={countries} onChange={handleFormData} value={formData.destination_country}/>
             </div>
             <div className={`${styles.form__cities} ${styles.input_wrapper}`}>
                 <div className={styles.form__city_selector}>
@@ -187,14 +187,14 @@ export default function Form() {
                             <div key={index} style={{display: 'flex'}}>
                                 <p>{city.city_name}</p>
                                 <p>{`(${format_date(city.start_date)} - ${format_date(city.end_date)})`}</p>
-                                <button type="button"  onClick={() => handleDeleteCity(index)}>delete</button>
+                                <button type="button" onClick={() => handleDeleteCity(index)}>delete</button>
                             </div>
                         )
                     })}
                 </div>
             </div>
             <div className={`${styles.form__tour_guide} ${styles.input_wrapper}`}>
-                <OptionInput label="Tour Guide" id="tourguide" options={tourguideName} onChange={handleTourGuideData}/>
+                <OptionInput label="Tour Guide" id="tourguide" value={formData.tour_guide.name} options={tourguideName} onChange={handleTourGuideData} />
             </div>
             <div className={styles.form__save_button}>
                 <button>Save</button>

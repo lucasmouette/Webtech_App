@@ -4,7 +4,7 @@
 	display: flex;
 	background-color: var(--accent_color);
 	width: 1000px;
-	height: auto;
+	min-height: 114px;
 	font-family: var(--primary-font);
 	border-radius: 15px;
 	align-items: center;

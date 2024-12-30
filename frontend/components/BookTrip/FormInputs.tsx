@@ -6,11 +6,11 @@ interface OptionInputProps {
     label: string;
     id: string;
     options: string[];
-    placeholder?: string;
+    value?: string;
     onChange: (e: FormEvent<HTMLSelectElement> | ChangeEvent<HTMLSelectElement>) => void;
 }
 
-export const OptionInput: React.FC<OptionInputProps> = ({label, options, id, onChange, placeholder}) => {
+export const OptionInput: React.FC<OptionInputProps> = ({label, options, id, onChange, value}) => {
 
     const handleChange = (e: React.FormEvent<HTMLSelectElement>) => {
         onChange(e);
@@ -19,8 +19,8 @@ export const OptionInput: React.FC<OptionInputProps> = ({label, options, id, onC
     return(
         <div>
             <label htmlFor={id}><h3>{label}:</h3></label>
-            <select  style={{display: "flex"}} name={id} id={id}  defaultValue={placeholder ? placeholder : ""} onChange={handleChange} required>
-            <option disabled value="" >{"Select " + label}</option>
+            <select  style={{display: "flex"}} name={id} id={id} value={value ? value : ""} onChange={handleChange} required>
+            <option disabled value="">{"Select " + label}</option>
             {options.map((option, i) => {
                 return <option key={i} value={option}>{option}</option>
             })}
