@@ -217,7 +217,7 @@ export default function SingleTripPage({ params }: { params: Promise<{ id: strin
                                         </div>
                                     </div>
                                     <div className={styles.edit_single_trip__country}>
-                                        <OptionInput label="Country" id="destination_country" placeholder={singleTrip.destination_country} options={countries} onChange={updateCountry}/>
+                                        <OptionInput label="Country" id="destination_country" value={singleTrip.destination_country} options={countries} onChange={updateCountry}/>
                                     </div>
                                     <div className={styles.edit_single_trip__cities}>
                                         <h4>Cities:</h4>
@@ -288,7 +288,7 @@ export default function SingleTripPage({ params }: { params: Promise<{ id: strin
                                     <div> 
                                     </div>
                                     <div className={styles.edit_single_trip__tour_guide}>
-                                        <OptionInput label="Tour Guide" id="tourguide" options={tourguideName} onChange={handleTourGuideData} placeholder={singleTrip.tour_guide.name}/>
+                                        <OptionInput label="Tour Guide" id="tourguide" options={tourguideName} onChange={handleTourGuideData} value={singleTrip.tour_guide.name}/>
                                     </div>
                                     <div className={styles.edit_single_trip__form_buttons}>
                                         <button type="button" onClick={() => setIsEditable(!isEditable)}>Cancel</button>
