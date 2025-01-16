@@ -1,7 +1,7 @@
 // Code written by Lucas Mouette
 
 export interface Trips_Props {
-    id: string;
+    _id: string;
     name: string;
     destination_country: string;
     start_date: string;

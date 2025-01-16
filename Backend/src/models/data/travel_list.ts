@@ -4,7 +4,6 @@ import { Travel } from "../travel";
 
 export const travel_list: Travel[] = [
   {
-    id: "0",
     name: "Sakura Odyssey",
     destination_country: "Japan",
     start_date: "2024-08-01",
@@ -13,7 +12,7 @@ export const travel_list: Travel[] = [
       {
         city_name: "Tokyo",
         start_date: "2024-08-01",
-        end_date: "2024-08-07"
+        end_date: "n"
       },
       {
         city_name: "Kyoto",
@@ -32,7 +31,6 @@ export const travel_list: Travel[] = [
     }
   },
   {
-    id: "1",
     name: "La Dolce Vita",
     destination_country: "Italy",
     start_date: "2024-05-10",
@@ -60,7 +58,6 @@ export const travel_list: Travel[] = [
     }
   },
   {
-    id: "2",
     name: "Down Under",
     destination_country: "Australia",
     start_date: "2024-11-01",
@@ -88,7 +85,6 @@ export const travel_list: Travel[] = [
     }
   },
   {
-    id: "3",
     name: "Great White North",
     destination_country: "Canada",
     start_date: "2024-09-01",
@@ -116,7 +112,6 @@ export const travel_list: Travel[] = [
     }
   },
   {
-    id: "4",
     name: "Samba & Sun",
     destination_country: "Brazil",
     start_date: "2024-03-01",

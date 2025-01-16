@@ -23,7 +23,7 @@ export default function TripListSection() {
         
         loadTrips();
 
-    }, [trip_list]);
+    }, []);
 
     return (
         <div className={styles.trip__list_container}>

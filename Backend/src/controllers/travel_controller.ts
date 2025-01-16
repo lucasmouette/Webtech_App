@@ -12,13 +12,11 @@ import {
     get_all_countries,
     get_all_tour_guides
 } from "../services/travel_service"
-import { id_counter } from "../utils/id_counter";
-import { travel_list } from "../models/data/travel_list";
 
-// Show all travels from travel_list.ts
-export const get_travels = (response: Response) => {
-    const all_travels = get_all_travels();
-
+// Show all travels from database
+export const get_travels = async (response: Response) => {
+    const all_travels = await get_all_travels();
+    
     if(all_travels.length > 0) {
         response.status(200).json(all_travels);
     } else {
@@ -26,12 +24,10 @@ export const get_travels = (response: Response) => {
     };
 };
 
-// Show travel with specific ID
-export const find_travel_by_id = (request: Request, response: Response) => {
+// Show travel with specific ID from database
+export const find_travel_by_id = async (request: Request, response: Response) => {
     const my_id = request.params.id;
-    const travel_found = filter_for_travel_by_id(my_id);
-
-    console.log(travel_found);
+    const travel_found = await filter_for_travel_by_id(my_id);
 
     if (travel_found) {
         response.status(200).json(travel_found);
@@ -62,20 +58,21 @@ export const get_tour_guides = (response: Response) => {
     };
 };
 
-// Create travel
-export const add_travel = (request: Request, response: Response) => {
-    console.log(typeof(request.body));
+// Create travel for database
+export const add_travel = async (request: Request, response: Response) => {
 
-    const new_id = id_counter(travel_list.length).toString();
     const name = request.body.name;
     const destination_country = request.body.destination_country;
     const start_date = request.body.start_date;
     const end_date = request.body.end_date;
     const cities = request.body.cities;
-    const tour_guide = request.body.tour_guide;
-    const new_travel_created = new Travel(new_id, name, destination_country, start_date, end_date, cities, tour_guide);
+    const tour_guide = {
+        name: request.body.tour_guide.name,
+        spoken_languages: request.body.tour_guide.spoken_languages.flat(),
+    };
+    const new_travel_created = new Travel(name, destination_country, start_date, end_date, cities, tour_guide);
     console.log(new_travel_created);
-    const add_to_my_travels =  push_to_travel(new_travel_created);
+    const add_to_my_travels = await push_to_travel(new_travel_created);
 
     if(add_to_my_travels) {
         response.status(200).json({message: 'New travel was added'});
@@ -84,12 +81,12 @@ export const add_travel = (request: Request, response: Response) => {
     };
 };
 
-// Update travel
-export const update_travel = (request: Request, response: Response) => {
+// Update travel from database
+export const update_travel = async (request: Request, response: Response) => {
 
     const temp_id: string = request.params.id;
-    const data = request.body; 
-    const update_travel = update_travel_by_id(temp_id, data);
+    const { name, destination_country, start_date, end_date, cities, tour_guide } = request.body; 
+    const update_travel = await update_travel_by_id(temp_id, name, destination_country, start_date, end_date, cities, tour_guide);
 
     if(update_travel) {
         response.status(200).json({message: 'travel was updated'});
@@ -98,10 +95,11 @@ export const update_travel = (request: Request, response: Response) => {
     };
 };
 
-// Delete all travels
-export const delete_all_my_travels = (request: Request, response: Response): void => {
+// Delete all travels from database
+export const delete_all_my_travels = async (request: Request, response: Response): Promise<void> => {
     
-    const remaining_travels = delete_all_travels();
+    await delete_all_travels();
+    const remaining_travels = await get_all_travels();
 
     if(remaining_travels.length === 0) {
         response.status(200).json({message: 'All travels were deleted'});
@@ -110,15 +108,15 @@ export const delete_all_my_travels = (request: Request, response: Response): voi
     };
 };
 
-// Delete travel by ID
-export const delete_travel = (request: Request, response: Response) => {
+// Delete travel by ID from database
+export const delete_travel = async (request: Request, response: Response) => {
 
-    const temp_id: string = request.params.id;
-    const delete_travel = delete_travel_by_id(temp_id)
+    const temp_id: string = request.params.id
+    const delete_travel = await delete_travel_by_id(temp_id)
 
     if (delete_travel) {
         response.status(200).json({message: 'Travel was deleted'});
     } else {
         response.status(500).json({error: 'Error deleting travel'});
     };
-};
+}

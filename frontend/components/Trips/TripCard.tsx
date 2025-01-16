@@ -13,7 +13,7 @@ export default function TripCard({trip, }: {trip: Trips_Props}) {
         return `${day}/${month}/${year}`;
     };
     
-    const handleClick = () => { delete_trip(trip.id); };
+    const handleClick = () => { delete_trip(trip._id); };
 
     return (
 
@@ -27,7 +27,7 @@ export default function TripCard({trip, }: {trip: Trips_Props}) {
                     <p>{`${format_date(trip.start_date)} - ${format_date(trip.end_date)}`}</p>
                 </div>
                 <div className={styles.trip__buttons}>
-                    <Link href={`/my_trips/${trip.id}`} className={styles.trip__info_button}>
+                    <Link href={`/my_trips/${trip._id}`} className={styles.trip__info_button}>
                         <Image src="/assets/info.svg" alt="More Info" width={24} height={24} />
                     </Link>
                     <Image src="/assets/trash.svg" alt="Delete Trip" width={24} height={24} className={styles.trip__delete_button} onClick={handleClick}/>

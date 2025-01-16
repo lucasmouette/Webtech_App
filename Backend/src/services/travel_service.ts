@@ -1,31 +1,24 @@
 // Code written by Lucas Mouette
 
 import { Travel } from "../models/travel";
-import { travel_list } from "../models/data/travel_list";
 import { City } from "../models/city";
 import { TourGuide } from "../models/tour_guide";
 import { destination_country_list } from "../models/data/country_list";
 import { tour_guide_list } from "../models/data/tour_guide_list";
+import Journey from "../models/journey";
+import { IJourney } from "../models/journey";
+import mongoose from "mongoose";
 
-// Show all travels from travel_list.ts
-export const get_all_travels = (): Travel[] => {
-    return travel_list;
-};
+// Show all travels from database
+export const get_all_travels = async (): Promise<IJourney[]> => {
+    const travels = await Journey.find()
+    return travels
+} 
 
-// Search for travel
-export const filter_for_travel_by_id = (id: string): Travel | null => {
-    let mytravel: Travel = {id: "", name: "", destination_country: "", start_date: "", end_date: "", cities: [], tour_guide: {name: "", spoken_languages: []}};
-    travel_list.map((el) => {
-        if (el.id === id) {
-            console.log(el);
-            mytravel = el;
-     }
-    });
-    if (mytravel.id !== "") {
-        return mytravel;
-    }
-    return null;
-};
+// Search for travel in database
+export const filter_for_travel_by_id = async (travel_id: string): Promise<IJourney | null> => {
+    return await Journey.findById(travel_id)
+}
 
 // Show all countries
 export const get_all_countries = (): string[] => {
@@ -37,19 +30,17 @@ export const get_all_tour_guides = (): TourGuide[] => {
     return tour_guide_list;
 };
 
-// Create travel
-export const create_travel = (
-    id: string,
+// Create travel for database
+export const create_travel = async (
     name: string,
     destination_country: string,
     start_date: string,
     end_date: string,
     cities: City[],
     tour_guide: TourGuide
-    ): Travel => {
-        // Create a new Travel object with the given values
+    ): Promise<IJourney> => {
+
     const new_travel = new Travel(
-        id,
         name,
         destination_country,
         start_date,
@@ -57,57 +48,68 @@ export const create_travel = (
         cities,
         tour_guide
     );
+
+    const new_journey = new Journey({
+        name: new_travel.name,
+        destination_country: new_travel.destination_country,
+        start_date: new_travel.start_date,
+        end_date: new_travel.end_date,
+        cities: new_travel.cities,
+        tour_guide: new_travel.tour_guide
+
+    })
     
-    travel_list.push(new_travel);
-    return new_travel;
+    await new_journey.save();
+    return new_journey;
 };
 
-// Add travel
-export const push_to_travel = (new_travel: Travel): Travel => {
-    
-    travel_list.push(new_travel);
-    return new_travel;
+// Add travel for database
+export const push_to_travel = async (new_travel: Travel): Promise<IJourney> => {
+    const new_journey = new Journey({
+        name: new_travel.name,
+        destination_country: new_travel.destination_country,
+        start_date: new_travel.start_date,
+        end_date: new_travel.end_date,
+        cities: new_travel.cities,
+        tour_guide: new_travel.tour_guide,
+    });
+
+    const saved_travel = await new_journey.save();
+    return saved_travel;
+}
+
+// Update travel from database
+export const update_travel_by_id = async (
+    id: string,
+    name: string,
+    destination_country: string,
+    start_date: string,
+    end_date: string,
+    cities: City[],
+    tour_guide: TourGuide
+): Promise<IJourney | null> => {
+    const updated_travel = await Journey.findByIdAndUpdate(
+        new mongoose.Types.ObjectId(id),
+        { $set: {
+            name,
+            destination_country,
+            start_date,
+            end_date,
+            cities,
+            tour_guide
+        }}, { new : true}
+    );
+    return updated_travel
+}
+
+// Delete all travels in database
+export const delete_all_travels = async (): Promise<void> => {
+    await Journey.deleteMany({});
 };
 
-// Update travel
-export const update_travel_by_id = (id: string, data: Travel ) => {
-    const updated_travel = travel_list.find((el: Travel) => {
-        if(el.id === id) {
-            travel_list[travel_list.indexOf(el)] = data;
-            return el;
-        };
-    }
-);
-    if(updated_travel) {
-        return updated_travel;
-    } else {
-        return null;
-    };
-};
+// Delete travel by ID from database
+export const delete_travel_by_id = async (id: string): Promise<boolean> => {
+    const look_for_id = await Journey.deleteOne({ _id: new mongoose.Types.ObjectId(id)});
 
-// Delete all travels
-export const delete_all_travels = (): Travel[] => {
-    while (travel_list.length > 0) {
-        travel_list.pop();
-    };
-    console.log(travel_list);
-    return travel_list;
-};
-
-// Delete travel by ID
-export const delete_travel_by_id = (id: string): Travel | null => {
-    const look_for_id = travel_list.find((el: Travel) => {
-        if(el.id === id) {
-            const deleted_travel = travel_list.splice(travel_list.indexOf(el), 1);
-            console.log(`Deleted travel:`, deleted_travel);
-            return el;
-        };
-    }
-);
-    if(look_for_id) {
-        return look_for_id;
-    } else {
-        console.log(`Travel with id: ${id} not found`);
-        return null;
-    };
-};
+    return look_for_id.deletedCount > 0
+}
