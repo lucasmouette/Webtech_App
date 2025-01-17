@@ -1,6 +1,12 @@
 // Code written by Lucas Mouette
 
-import mongoose, { Schema } from "mongoose";
+import mongoose from "mongoose";
+
+export interface ICities {
+    city_name: string;
+    start_date: string;
+    end_date: string;
+};
 
 export interface IJourney {
 
@@ -9,16 +15,12 @@ export interface IJourney {
     destination_country: string;
     start_date: string;
     end_date: string;
-    cities: {
-        city_name: string;
-        start_date: string;
-        end_date: string;
-    };
+    cities: ICities[];
     tour_guide: {
         name: string;
         spoken_languages: string[]
     };
-}
+};
 
 const journeySchema = new mongoose.Schema<IJourney>({
 

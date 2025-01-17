@@ -100,12 +100,17 @@ export default function SingleTripPage({ params }: { params: Promise<{ id: strin
     };
 
     const handleSave = () => {
+ 
         const saveNewTripData = async () => {
+         
             const updatedTrip: any = await edit_trip(singleTrip);
+    
             if(updatedTrip) {
+                alert(updatedTrip)
                 setSingleTrip(updatedTrip);
             }
         }
+
     saveNewTripData();
     };
 
@@ -148,7 +153,6 @@ export default function SingleTripPage({ params }: { params: Promise<{ id: strin
     }
 
     const updateCities = () => {
-        console.log(cityData)
         if(cityData.city_name && cityData.end_date && cityData.start_date) {
             setIsError(false)
             if(singleTrip) { setSingleTrip({

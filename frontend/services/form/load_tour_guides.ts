@@ -10,7 +10,6 @@ export async function load_tour_guides() {
 
         all_tour_guides.data.forEach((tour_guide: {name: string, spoken_languages: string}) => {
             tour_guide_list.push({name: tour_guide.name, spoken_languages: [tour_guide.spoken_languages]});
-            console.log(tour_guide_list);
         });
         return tour_guide_list;
     } catch (error) {

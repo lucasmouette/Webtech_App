@@ -89,6 +89,7 @@ export const update_travel = async (request: Request, response: Response) => {
     const update_travel = await update_travel_by_id(temp_id, name, destination_country, start_date, end_date, cities, tour_guide);
 
     if(update_travel) {
+      
         response.status(200).json({message: 'travel was updated'});
     } else {
         response.status(500).json({error: 'Error updating travel'});

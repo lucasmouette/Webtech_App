@@ -23,13 +23,13 @@ export default function TripListSection() {
         
         loadTrips();
 
-    }, []);
+    }, [load_trips, trip_list]);
 
     return (
         <div className={styles.trip__list_container}>
-            {trip_list.map((trip, index) => (
+            {trip_list ? (trip_list.map((trip, index) => (
                 <TripCard key={index} trip={trip}/>
-            ))}
+            ))): <span>Loading…</span>}
         </div>
     );
 }

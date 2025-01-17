@@ -80,7 +80,7 @@ export const push_to_travel = async (new_travel: Travel): Promise<IJourney> => {
 
 // Update travel from database
 export const update_travel_by_id = async (
-    id: string,
+    _id: string,
     name: string,
     destination_country: string,
     start_date: string,
@@ -88,17 +88,19 @@ export const update_travel_by_id = async (
     cities: City[],
     tour_guide: TourGuide
 ): Promise<IJourney | null> => {
-    const updated_travel = await Journey.findByIdAndUpdate(
-        new mongoose.Types.ObjectId(id),
-        { $set: {
-            name,
-            destination_country,
-            start_date,
-            end_date,
-            cities,
-            tour_guide
-        }}, { new : true}
-    );
+
+    const update = {
+        name: name, 
+        destination_country: destination_country, 
+        start_date: start_date,
+        end_date: end_date,
+        cities: cities,
+        tour_guide: {
+            name: tour_guide.name, 
+            spoken_languages: tour_guide.spoken_languages.flat()}
+    }
+
+    const updated_travel = await Journey.findByIdAndUpdate(_id, update, {new: true})
     return updated_travel
 }
 
