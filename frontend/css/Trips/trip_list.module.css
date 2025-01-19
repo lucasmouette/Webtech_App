@@ -9,3 +9,14 @@
     display: flex;
     flex-direction: column-reverse;
 }
+
+.trip__list_empty {
+    width: 100%; 
+    height: 90vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--primary-font);
+    font-size: var(--subtitle_text);
+    text-align: center;
+}

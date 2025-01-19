@@ -27,7 +27,9 @@ const journeySchema = new mongoose.Schema<IJourney>({
     name: { type: String, required: true },
     destination_country: { type: String, required: true },
     start_date: { type: String, required: true },
-    end_date: { type: String, required: true },
+    end_date: { type: String, required: true , validate: { validator: function (value: string) {
+        return new Date(value) > new Date(this.start_date);
+    }, message: "End date must be after start date" } },
     cities: [
         {
           city_name: { type: String, required: true },

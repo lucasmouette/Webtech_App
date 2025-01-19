@@ -15,7 +15,9 @@ export default function TripListSection() {
     useEffect(() => {
 
         const loadTrips = async () => {
+
             const trip_list_data: Trips_Props[] = await load_trips();
+
             if(trip_list_data) {
                 setTripList(trip_list_data);
             }
@@ -27,9 +29,15 @@ export default function TripListSection() {
 
     return (
         <div className={styles.trip__list_container}>
-            {trip_list ? (trip_list.map((trip, index) => (
-                <TripCard key={index} trip={trip}/>
-            ))): <span>Loading…</span>}
+            {trip_list.length > 0 ? (
+                trip_list.map((trip, index) => (
+                    <TripCard key={index} trip={trip} />
+                ))
+            ) : (
+                <div className={styles.trip__list_empty}> 
+                    No travels have been registered. <br />
+                    Start planning now! </div>
+            )}
         </div>
     );
 }

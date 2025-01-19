@@ -8,6 +8,6 @@ export const add_trip = async (trip: any) => {
         return new_trip.data;
         
     } catch (error) {
-        console.error("ERROR: No trip found", error);
+        console.error("ERROR: Trip could not be created", error);
     };
 }

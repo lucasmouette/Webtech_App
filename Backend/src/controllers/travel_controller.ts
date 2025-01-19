@@ -20,7 +20,7 @@ export const get_travels = async (response: Response) => {
     if(all_travels.length > 0) {
         response.status(200).json(all_travels);
     } else {
-        response.status(404).json('No travels found');
+        response.status(204).json('No travels found');
     };
 };
 
