@@ -1,13 +1,16 @@
 // Code written by Lucas Mouette
 
+import ProtectedWrapper from "@/components/ProtectedWrapper";
 import TripListSection from "@/components/Trips/TripListSection";
 
 export default function MyTripsPage() {
     return (
-        <div>
+        <ProtectedWrapper>
             <main>
-                <TripListSection />
-            </main>   
-        </div>
+                <div>
+                    <TripListSection />
+                </div>   
+            </main>
+        </ProtectedWrapper>
     );
 }

@@ -4,7 +4,11 @@ import axios from "axios";
 
 export async function load_trips() {
     try {
-        const all_trips = await axios.get("http://localhost:8084/api/mytravels");
+        const all_trips = await axios.get("http://localhost:8084/api/mytravels", {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`
+            }
+        });
         return all_trips.data;
     } catch (error) {
         console.error("ERROR: No trips found", error);

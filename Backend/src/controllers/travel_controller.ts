@@ -121,3 +121,4 @@ export const delete_travel = async (request: Request, response: Response) => {
         response.status(500).json({error: 'Error deleting travel'});
     };
 }
+

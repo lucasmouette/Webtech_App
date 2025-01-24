@@ -1,6 +1,6 @@
 // Code written by Lucas Mouette
 
-import express, { Request, Response } from "express";
+import express, { NextFunction, Request, Response } from "express";
 import {
     add_travel,
     get_travels,
@@ -11,16 +11,17 @@ import {
     get_countries,
     get_tour_guides,
 } from "../controllers/travel_controller";
+import { verifyToken } from "../utils/verifyToken";
 
 const router = express.Router();
 
 // Show all travels from database
-router.get("/api/mytravels", async (request: Request, response: Response) => {
+router.get("/api/mytravels", verifyToken, async (request: Request, response: Response) => {
     await get_travels(response);
 });
 
 // Show travel with specific ID
-router.get("/api/mytravels/:id", async (request: Request, response: Response) => {
+router.get("/api/mytravels/:id", verifyToken, async (request: Request, response: Response) => {
     await find_travel_by_id(request, response);
 });
 
@@ -35,22 +36,23 @@ router.get("/api/tourguides", (request: Request, response: Response) => {
 });
 
 // Create travel
-router.post("/api/mytravels", async (request: Request, response: Response) => {
+router.post("/api/mytravels", verifyToken, async (request: Request, response: Response) => {
+    console.log("Request Body:", request.body);
     await add_travel(request, response);
 });
 
 // Update travel
-router.put("/api/mytravels/:id", async (request: Request, response: Response) => {
+router.put("/api/mytravels/:id", verifyToken, async (request: Request, response: Response) => {
     await update_travel(request, response);
 });
 
 // Delete all travels
-router.delete("/api/mytravels", async (request: Request, response: Response) => {
+router.delete("/api/mytravels", verifyToken, async (request: Request, response: Response) => {
     await delete_all_my_travels(request, response);
 });
 
 // Delete travel by ID
-router.delete("/api/mytravels/:id", async (request: Request, response: Response) => {
+router.delete("/api/mytravels/:id", verifyToken, async (request: Request, response: Response) => {
     await delete_travel(request, response);
 });
 
